@@ -14,7 +14,7 @@ const obj = require('./CSVcensus');
 
 let censusDataArr = [];
 
-let censusData = new obj();
+// let censusData = new obj();
 
 //read file from here.
 try {
@@ -29,11 +29,19 @@ try {
                 population: row.population
             }
 
+            // censusData.setState(row.state);
+            // censusData.setAreaInSqKm(row.areaInSqKm);
+            // censusData.setDensityPerSqKm(row.densityPerSqKm);
+            // censusData.setPopulation(row.population);
+
             censusDataArr.push(censusData);
 
         })
         .on('end', () => {
             console.log('CSV file successfully processed');
+            censusDataArr.map((index, item) => {
+                console.log("mapped data : ", index);
+            })
         })
 } catch (error) {
     console.log(error);
