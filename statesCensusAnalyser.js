@@ -10,29 +10,29 @@
 
 const csv = require('csv-parser');
 const fs = require('fs');
-const obj = require('./CSVcensus');
+const obj = require('./CSVStateCensus');
 
 let censusDataArr = [];
 
-// let censusData = new obj();
+let censusData = new obj();
 
-//read file from here.
+//reading CSV file data.
 try {
     fs.createReadStream('StateCensusData.csv')
         .pipe(csv())
         .on('data', (row) => {
 
-            let censusData = {
-                state: row.state,
-                areaInSqKm:row.areaInSqKm,
-                densityPerSqKm: row.densityPerSqKm,
-                population: row.population
-            }
+            // let censusData = {
+            //     state: row.state,
+            //     areaInSqKm:row.areaInSqKm,
+            //     densityPerSqKm: row.densityPerSqKm,
+            //     population: row.population
+            // }
 
-            // censusData.setState(row.state);
-            // censusData.setAreaInSqKm(row.areaInSqKm);
-            // censusData.setDensityPerSqKm(row.densityPerSqKm);
-            // censusData.setPopulation(row.population);
+            censusData.state = row.state;
+            censusData.areaInSqKm = row.areaInSqKm;
+            censusData.densityPerSqKm = row.densityPerSqKm;
+            censusData.population = row.population;
 
             censusDataArr.push(censusData);
 
