@@ -22,13 +22,6 @@ try {
         .pipe(csv())
         .on('data', (row) => {
 
-            // let censusData = {
-            //     state: row.state,
-            //     areaInSqKm:row.areaInSqKm,
-            //     densityPerSqKm: row.densityPerSqKm,
-            //     population: row.population
-            // }
-
             censusData.state = row.state;
             censusData.areaInSqKm = row.areaInSqKm;
             censusData.densityPerSqKm = row.densityPerSqKm;
@@ -39,9 +32,10 @@ try {
         })
         .on('end', () => {
             console.log('CSV file successfully processed');
-            censusDataArr.map((index, item) => {
-                console.log("mapped data : ", index);
-            })
+        
+            censusDataArr.forEach(element => {
+                console.log("Array data : ", element);
+            });
         })
 } catch (error) {
     console.log(error);

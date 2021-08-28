@@ -1,7 +1,14 @@
-module.exports = class CSVStateCensus {
+/**
+ * ****************************************************************************
+ * Purpose: The purpose of this program to analyse the indian states census.
+ *
+ * @author Dhiraj
+ * @version 1.0
+ * @since 26-08-2021
+ * ****************************************************************************
+ */
 
-    // constructor(...params) {
-    //   }
+ class CSVStateCensus {
 
     set state(value) {
         console.log(value);
@@ -47,3 +54,5 @@ module.exports = class CSVStateCensus {
     }
 
 }
+
+module.exports = CSVStateCensus;
